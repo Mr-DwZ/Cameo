@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160307092824) do
+ActiveRecord::Schema.define(version: 20160307080629) do
 
   create_table "examinees", force: :cascade do |t|
     t.string   "username"
@@ -22,11 +22,6 @@ ActiveRecord::Schema.define(version: 20160307092824) do
     t.integer  "gender"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-  end
-
-  create_table "examinees_exams", id: false, force: :cascade do |t|
-    t.integer "examinee_id"
-    t.integer "exam_id"
   end
 
   create_table "examiners", force: :cascade do |t|
@@ -55,9 +50,12 @@ ActiveRecord::Schema.define(version: 20160307092824) do
 
   create_table "questions", force: :cascade do |t|
     t.string   "properties"
+    t.integer  "exam_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
+
+  add_index "questions", ["exam_id"], name: "index_questions_on_exam_id"
 
   create_table "results", force: :cascade do |t|
     t.integer  "exam_id"
