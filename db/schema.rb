@@ -46,9 +46,12 @@ ActiveRecord::Schema.define(version: 20160307092824) do
     t.datetime "begin_time"
     t.integer  "total_score"
     t.integer  "problem_number"
+    t.integer  "examiner_id"
     t.datetime "created_at",     null: false
     t.datetime "updated_at",     null: false
   end
+
+  add_index "exams", ["examiner_id"], name: "index_exams_on_examiner_id"
 
   create_table "questions", force: :cascade do |t|
     t.string   "properties"

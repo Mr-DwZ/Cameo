@@ -6,8 +6,10 @@ class CreateExams < ActiveRecord::Migration
       t.datetime :begin_time
       t.integer  :total_score
       t.integer  :problem_number
-
+      t.integer  :examiner_id
       t.timestamps null: false
     end
+
+    add_index :exams, :examiner_id
   end
 end
