@@ -51,11 +51,13 @@ ActiveRecord::Schema.define(version: 20160307080629) do
   create_table "questions", force: :cascade do |t|
     t.string   "properties"
     t.integer  "exam_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.integer  "examiner_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
   add_index "questions", ["exam_id"], name: "index_questions_on_exam_id"
+  add_index "questions", ["examiner_id"], name: "index_questions_on_examiner_id"
 
   create_table "results", force: :cascade do |t|
     t.integer  "exam_id"
