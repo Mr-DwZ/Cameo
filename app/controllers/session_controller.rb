@@ -5,32 +5,36 @@ class SessionController < ApplicationController
 
   def create
     status = params[:session][:status]
-    puts status
+
     if status
-      @user = Examinee.find_by_username params[:session][:username]
-      if status == 'Examinee'
+      model = case status
+                when 'Examinee'
+                  Examinee
+                when 'Examiner'
+                  Examiner
+                else
+                  nil
+              end
+
+      if model
+        @user = model.find_by_username params[:session][:username]
         if @user && @user[:password] == params[:session][:password]
-          flash[:success] = 'Login success as examinee'
+          flash[:success] = 'Login success as ' + status
           session[:user_id] = @user.id
           session[:name] = @user.name
-          session[:status] = 'Examinee'
+          session[:status] = status
+          redirect_to examiner_url(@user.name)
         else
           flash[:danger] = 'Invalid username or password.'
+          render "new"
         end
-      elsif status == 'Examiner'
-        @user = Examiner.find_by_username params[:session][:username]
-        if @user && @user[:password] == params[:session][:password]
-          flash[:success] = 'Login success as examiner'
-          session[:user_id] = @user.id
-          session[:name] = @user.name
-          session[:status] = 'Examiner'
-          redirect_to examiner_path(@user.username)
-        else
-          flash[:danger] = 'Invalid username or password.'
-        end
-      else flash[:danger] = 'Invalid status'
+      else
+        flash[:danger] = 'Invalid status!'
+        render "new"
       end
-    else flash[:danger] = 'Empty status'
+    else
+      flash[:danger] = 'Empty status!'
+      render "new"
     end
   end
 end
