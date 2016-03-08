@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component name="dataSourceStorage">
+  <data-source name="Rails Cameo: test" uuid="26d24e43-c0ac-45b5-93c7-b9f2434222de">
+    <database-info product="" version="" jdbc-version="" driver-name="" driver-version=""/>
+  </data-source>
+  <data-source name="Rails Cameo: development" uuid="f8374967-ee6b-40b5-93bb-5ed8d42c1498">
+    <database-info product="" version="" jdbc-version="" driver-name="" driver-version=""/>
+  </data-source>
+  <data-source name="Rails Cameo: production" uuid="08004093-b7dd-482f-aeaa-2bf49ee5ff35">
+    <database-info product="" version="" jdbc-version="" driver-name="" driver-version=""/>
+  </data-source>
+</component>
