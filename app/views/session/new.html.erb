@@ -1,5 +1,9 @@
 <% provide(:title, "Log in") %>
 
+<% flash.each do |message_type, message| %>
+    <div class="alert alert-<%= message_type %>"><%= message %></div>
+<% end %>
+
 <div class="row">
   <div class="col-md-6 col-md-offset-3">
     <%= form_for :session, url: login_path do |f| %>
@@ -15,7 +19,14 @@
 
         <br>
 
-        <%= f.submit "Log in", class: "btn btn-primary" %>
+        <%=f.radio_button :status, "Examinee", checked: true %>
+        <%=f.label :status_examinee, "Examinee"%> &nbsp
+        <%=f.radio_button :status, "Examiner"%>
+        <%=f.label :status_examiner, "Examiner"%>
+
+        <br> <br>
+
+        <%= f.submit "Log in", class: "btn btn-primary" %> &nbsp
         <%= f.submit "Sign up", class: "btn btn-primary" %>
     <% end %>
 
