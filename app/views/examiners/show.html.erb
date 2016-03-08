@@ -1,3 +1,14 @@
-<h1>Welcome! <%= session[:status] %> <%= session[:name]%></h1>
+<h1>Welcome! <%= session[:status] %> <%= @user.name %></h1>
 
+<h2>Exams</h2>
+<% @exams.each do |exam| %>
+    <tr>
+      <td><%= exam[:subject] %></td>
+      <td><%= link_to "Edit"%></td>
+      <td><%= link_to "Delete"%></td>
+    </tr>
+<% end %>
+<br>
+
+<%= link_to "Add", new_examiner_exam_path(@user.username) %>
 

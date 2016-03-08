@@ -18,6 +18,7 @@ class SessionController < ApplicationController
 
       if model
         @user = model.find_by_username params[:session][:username]
+
         if @user && @user[:password] == params[:session][:password]
           flash[:success] = 'Login success as ' + status
           session[:user_id] = @user.id
@@ -28,13 +29,16 @@ class SessionController < ApplicationController
           flash[:danger] = 'Invalid username or password.'
           render "new"
         end
+
       else
         flash[:danger] = 'Invalid status!'
         render "new"
       end
+
     else
       flash[:danger] = 'Empty status!'
       render "new"
+
     end
   end
 end
