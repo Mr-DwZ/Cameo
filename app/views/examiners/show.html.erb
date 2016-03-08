@@ -1,14 +1,30 @@
-<h1>Welcome! <%= session[:status] %> <%= @user.name %></h1>
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <h1>Welcome! <%= session[:status] %> <%= @user.name %></h1>
 
-<h2>Exams</h2>
-<% @exams.each do |exam| %>
-    <tr>
-      <td><%= exam[:subject] %></td>
-      <td><%= link_to "Edit"%></td>
-      <td><%= link_to "Delete"%></td>
-    </tr>
-<% end %>
-<br>
+    <h2>Exams </h2>
 
-<%= link_to "Add", new_examiner_exam_path(@user.username) %>
+    <table class = "table">
+      <thead>
+        <tr>
+          <th>Subject</th>
+          <th>Operations</th>
+        </tr>
+      </thead>
 
+      <tbody>
+      <% @exams.each do |exam| %>
+        <tr>
+          <td><%= exam[:subject] %></td>
+          <td><%= link_to "View"%>
+            <%= link_to "Edit"%>
+            <%= link_to "Delete"%></td>
+        </tr>
+      <% end %>
+      </tbody>
+    </table>
+    <br>
+
+  </div>
+
+</div>
