@@ -1,6 +1,17 @@
 Rails.application.routes.draw do
   get 'login' => 'session#new'
   post 'login' => 'session#create'
+
+  concern :result_readable do
+    resources :results, only: [:index, :show]
+  end
+
+  resources :examiners, param: :username do
+    resources :exams do
+      concerns :result_readable
+    end
+    resources :questions, shallow: true
+  end
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
