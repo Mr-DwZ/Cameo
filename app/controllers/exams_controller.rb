@@ -22,6 +22,10 @@ class ExamsController < ApplicationController
     end
   end
 
+  def show
+
+  end
+
   def destroy
     exam = Exam.find_by_id params[:id]
     exam.destroy
@@ -31,5 +35,4 @@ class ExamsController < ApplicationController
   def exam_parms
     params.require(:exam).permit(:subject, :number, :begin, :duration)
   end
-
 end
