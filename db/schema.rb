@@ -19,9 +19,11 @@ ActiveRecord::Schema.define(version: 20160309120812) do
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
     t.integer  "examinee_id"
+    t.integer  "question_id"
   end
 
   add_index "codes", ["examinee_id"], name: "index_codes_on_examinee_id"
+  add_index "codes", ["question_id"], name: "index_codes_on_question_id"
 
   create_table "examinees", force: :cascade do |t|
     t.string   "username"

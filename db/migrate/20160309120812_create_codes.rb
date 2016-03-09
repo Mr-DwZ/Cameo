@@ -5,8 +5,10 @@ class CreateCodes < ActiveRecord::Migration
       t.integer :language
       t.timestamps null: false
       t.integer :examinee_id
+      t.integer :question_id
     end
 
     add_index :codes, :examinee_id
+    add_index :codes, :question_id
   end
 end
