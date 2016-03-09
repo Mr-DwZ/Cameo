@@ -11,7 +11,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160307080629) do
+ActiveRecord::Schema.define(version: 20160309120812) do
+
+  create_table "codes", force: :cascade do |t|
+    t.text     "code_block"
+    t.integer  "language"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.integer  "examinee_id"
+  end
+
+  add_index "codes", ["examinee_id"], name: "index_codes_on_examinee_id"
 
   create_table "examinees", force: :cascade do |t|
     t.string   "username"
@@ -49,11 +59,18 @@ ActiveRecord::Schema.define(version: 20160307080629) do
   add_index "exams", ["examiner_id"], name: "index_exams_on_examiner_id"
 
   create_table "questions", force: :cascade do |t|
-    t.string   "properties"
+    t.text     "description"
+    t.text     "input"
+    t.text     "output"
+    t.text     "sample_input"
+    t.text     "sample_output"
+    t.text     "hint"
+    t.text     "test_input"
+    t.text     "test_output"
     t.integer  "exam_id"
     t.integer  "examiner_id"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
   end
 
   add_index "questions", ["exam_id"], name: "index_questions_on_exam_id"
