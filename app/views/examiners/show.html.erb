@@ -4,7 +4,7 @@
 
     <h2>
       Exams
-      <small><%= link_to "Add"%></small>
+      <small><%= link_to "Add", new_examiner_exam_path(@user.username) %></small>
     </h2>
 
     <table class = "table">
@@ -19,9 +19,11 @@
       <% @exams.each do |exam| %>
         <tr>
           <td><%= exam[:subject] %></td>
-          <td><%= link_to "View"%>
+          <td>
+            <%= link_to "View"%>
             <%= link_to "Edit"%>
-            <%= link_to "Delete"%></td>
+            <%= link_to "Delete"%>
+          </td>
         </tr>
       <% end %>
       </tbody>

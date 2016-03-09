@@ -37,7 +37,7 @@ ActiveRecord::Schema.define(version: 20160307080629) do
 
   create_table "exams", force: :cascade do |t|
     t.string   "subject"
-    t.time     "duration"
+    t.integer  "duration"
     t.datetime "begin_time"
     t.integer  "total_score"
     t.integer  "problem_number"

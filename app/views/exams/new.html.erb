@@ -1,0 +1,24 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-6">
+      <h1>Create Examination</h1>
+
+      <%= form_for :exam, url: examiner_exams_path do |f| %>
+          <%= f.label :subject, "Subject", class: 'control-label' %>
+          <%= f.text_field :subject, class: 'form-control' %>
+
+          <br>
+
+          <%= f.label :duration, "Duration(min)", class: 'control-label' %>
+          <%= f.number_field :duration, class: 'form-control' %>
+          <br>
+
+          <%= f.label :begin, "Start at", class: 'control-label' %>
+          <%= f.datetime_select :begin, class: 'form-control' %>
+          <br>
+
+          <%= f.submit "Submit", class: "btn btn-primary" %>
+      <% end %>
+    </div>
+  </div>
+</div>

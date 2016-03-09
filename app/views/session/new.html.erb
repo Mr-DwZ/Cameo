@@ -6,9 +6,8 @@
 
 <div class="row">
   <div class="col-md-6 col-md-offset-3">
+    <h1>Log in</h1>
     <%= form_for :session, url: login_path do |f| %>
-        <h1>Log in</h1>
-
         <%= f.label :username %>
         <%= f.email_field :username, class: 'form-control' %>
 
