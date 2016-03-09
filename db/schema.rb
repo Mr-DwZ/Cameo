@@ -48,7 +48,7 @@ ActiveRecord::Schema.define(version: 20160309120812) do
   end
 
   create_table "exams", force: :cascade do |t|
-    t.string   "subject"
+    t.string   "name"
     t.integer  "duration"
     t.datetime "begin_time"
     t.integer  "total_score"
@@ -61,6 +61,7 @@ ActiveRecord::Schema.define(version: 20160309120812) do
   add_index "exams", ["examiner_id"], name: "index_exams_on_examiner_id"
 
   create_table "questions", force: :cascade do |t|
+    t.string   "name"
     t.text     "description"
     t.text     "input"
     t.text     "output"

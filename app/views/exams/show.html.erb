@@ -1,7 +1,7 @@
 <div class="container">
   <div class="row">
     <div class="col-md-6">
-      <h1> <%=@exam[:subject] %> </h1>
+      <h1> <%=@exam[:name] %> </h1>
       <%= label_tag "Duration(min) : " %>
       <%=@exam[:duration]%>
       <br>
@@ -16,7 +16,9 @@
       <br>
       <h2>
         Questions
-        <small><%= link_to 'add' %></small>
+        <small><%= link_to 'add',
+                           new_examiner_exam_question_path(params[:examiner_username], params[:id])
+        %></small>
       </h2>
 
       <table class="table">

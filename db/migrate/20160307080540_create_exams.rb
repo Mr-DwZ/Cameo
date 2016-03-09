@@ -1,7 +1,7 @@
 class CreateExams < ActiveRecord::Migration
   def change
     create_table :exams do |t|
-      t.string   :subject
+      t.string   :name
       t.integer  :duration
       t.datetime :begin_time
       t.integer  :total_score

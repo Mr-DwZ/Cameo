@@ -8,9 +8,8 @@ Rails.application.routes.draw do
 
   resources :examiners, param: :username do
     resources :exams do
-      concerns :result_readable
+      resources :questions
     end
-    resources :questions, shallow: true
   end
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

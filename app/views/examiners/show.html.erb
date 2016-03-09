@@ -29,7 +29,7 @@
       <table class = "table">
         <thead>
         <tr>
-          <th>Subject</th>
+          <th>Name</th>
           <th>Operations</th>
         </tr>
         </thead>
@@ -37,7 +37,7 @@
         <tbody>
         <% @exams.each do |exam| %>
             <tr>
-              <td><%= exam[:subject] %></td>
+              <td><%= exam[:name] %></td>
               <td>
                 <%= link_to "View", examiner_exam_path(@user.username, exam.id) %>
                 <%= link_to "Delete", examiner_exam_path(@user.username, exam.id), method: :delete %>

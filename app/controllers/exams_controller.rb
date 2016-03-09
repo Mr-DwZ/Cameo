@@ -13,7 +13,7 @@ class ExamsController < ApplicationController
                               param["begin(5i)"].to_i)
 
 
-    exam = user.exams.create subject: param[:subject],
+    exam = user.exams.create name: param[:name],
                              begin_time: begin_time,
                              duration: param[:duration].to_i
 
@@ -33,6 +33,6 @@ class ExamsController < ApplicationController
   end
 
   def exam_parms
-    params.require(:exam).permit(:subject, :number, :begin, :duration)
+    params.require(:exam).permit(:name, :number, :begin, :duration)
   end
 end
