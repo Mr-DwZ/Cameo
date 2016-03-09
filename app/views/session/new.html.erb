@@ -1,7 +1,7 @@
 <% provide(:title, "Log in") %>
 
-<% flash.each do |message_type, message| %>
-    <div class="alert alert-<%= message_type %>"><%= message %></div>
+<% if flash[:danger] %>
+    <div class="alert alert-danger"><%= flash[:danger] %></div>
 <% end %>
 
 <div class="row">

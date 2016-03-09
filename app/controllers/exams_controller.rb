@@ -23,7 +23,7 @@ class ExamsController < ApplicationController
   end
 
   def show
-
+    @exam = Exam.find_by_id params[:id]
   end
 
   def destroy
