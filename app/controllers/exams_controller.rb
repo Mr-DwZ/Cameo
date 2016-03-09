@@ -22,6 +22,12 @@ class ExamsController < ApplicationController
     end
   end
 
+  def destroy
+    exam = Exam.find_by_id params[:id]
+    exam.destroy
+    redirect_to examiner_path(params[:examiner_username])
+  end
+
   def exam_parms
     params.require(:exam).permit(:subject, :number, :begin, :duration)
   end

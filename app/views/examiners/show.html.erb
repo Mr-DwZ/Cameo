@@ -21,8 +21,8 @@
           <td><%= exam[:subject] %></td>
           <td>
             <%= link_to "View"%>
-            <%= link_to "Edit"%>
-            <%= link_to "Delete"%>
+            <%= link_to "Edit" %>
+            <%= link_to "Delete", examiner_exam_path(@user.username, exam.id), method: :delete %>
           </td>
         </tr>
       <% end %>
