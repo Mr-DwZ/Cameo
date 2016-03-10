@@ -32,15 +32,17 @@
     </p>
 
     <h2>Your Code</h2>
-    <select class="form-control">
-      <option>C</option>
-      <option>C++</option>
-      <option>Java</option>
-    </select>
+    <%code_url = examinee_exam_question_code_path(params[:examinee_username], @question.exam.id, @question.id)%>
+    <%= form_for :code, url:code_url do |f| %>
+        <%= f.select :language,
+                     options_for_select([['C', :c], ['C++', :cpp], ['Java', :java]]),{},
+                     {class: "form-control"}
+        %>
 
-    <textarea class="form-control" rows="10"></textarea>
-    <br>
-    <button class="btn btn-primary">submit</button>
+        <textarea name="code_block" class="form-control" rows="10"></textarea>
+        <br>
+        <button class="btn btn-primary">submit</button>
+    <%end%>
 
   </div>
 </div>
