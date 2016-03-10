@@ -33,7 +33,7 @@
       <% @exams.each do |exam| %>
           <tr>
             <td><%= exam[:name] %></td>
-            <td> <%= link_to "View", examiner_exam_path(@user.username, exam.id) %> </td>
+            <td> <%= link_to "View", examinee_exam_path(@user.username, exam.id) %> </td>
           </tr>
       <% end %>
       </tbody>

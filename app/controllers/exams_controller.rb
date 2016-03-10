@@ -26,6 +26,12 @@ class ExamsController < ApplicationController
     @exam = Exam.find_by_id params[:id]
     @questions = @exam.questions.all
     @examinees = @exam.examinees.all
+
+    if session[:status] == "Examiner"
+      render "show.html.erb"
+    else
+      render "examinee_show.html.erb"
+    end
   end
 
   def destroy

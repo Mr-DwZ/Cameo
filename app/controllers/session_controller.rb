@@ -24,7 +24,7 @@ class SessionController < ApplicationController
           session[:user_id] = @user.id
           session[:name] = @user.name
           session[:status] = status
-          if (status == "Examiner")
+          if status == "Examiner"
             redirect_to examiner_path(params[:session][:username])
           else
             redirect_to examinee_path(params[:session][:username])

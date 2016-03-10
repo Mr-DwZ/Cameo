@@ -1,0 +1,46 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-6">
+      <h1> <%=@exam[:name] %> </h1>
+      <%= label_tag "Duration(min) : " %>
+      <%=@exam[:duration]%>
+      <br>
+      <%= label_tag "Start at :" %>
+      <%= @exam[:begin_time]%>
+      <br>
+      <%= label_tag "Total score :" %>
+      <%= @exam[:total_score]%>
+      <br>
+      <%= label_tag "Problem number :" %>
+      <%= @exam[:problem_number]%>
+      <br>
+      <%= link_to "Back", examinee_path(params[:examinee_username]) %>
+      <h2>
+        Questions
+      </h2>
+
+      <table class="table">
+        <thead>
+        <tr>
+          <th>Question Name</th>
+          <th>Score</th>
+          <th>Operations</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        <% if @questions %>
+            <% @questions.each do |question| %>
+                <tr>
+                  <td><%= question[:name] %> </td>
+                  <td><%= question[:score] %> </td>
+                  <td> <%= link_to "View" %> </td>
+                </tr>
+            <% end %>
+        <% end%>
+        </tbody>
+      </table>
+
+    </div>
+  </div>
+</div>
