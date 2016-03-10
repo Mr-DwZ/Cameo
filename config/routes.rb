@@ -10,6 +10,7 @@ Rails.application.routes.draw do
     resources :exams do
       resources :questions
     end
+    resources :results
   end
 
   resources :examinees, param: :username do
@@ -18,6 +19,7 @@ Rails.application.routes.draw do
         resource :code
       end
     end
+    resources :results, only: [:index, :show]
   end
 
   # The priority is based upon order of creation: first created -> highest priority.
