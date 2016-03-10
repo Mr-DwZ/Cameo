@@ -65,13 +65,18 @@
         </thead>
 
         <tbody>
-        <% if @examinees %>
-            <% @examinees.each do |examinee| %>
+        <% if @exam.examinees %>
+            <% @exam.examinees.each do |examinee| %>
                 <tr>
                   <td><%= examinee[:name] %> </td>
                   <td><%= examinee[:score] %> </td>
                   <td>
-                    <%= link_to "Remove"%>
+                    <%= link_to "Remove",
+                                examiner_exam_result_path(examiner_username: params[:examiner_username],
+                                                          exam_id: @exam.id,
+                                                          id: examinee.results.all.find_by_exam_id(@exam.id).id),
+                                method: :delete
+                    %>
                     <%= link_to "View" %>
                   </td>
                 </tr>
