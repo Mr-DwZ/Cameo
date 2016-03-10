@@ -4,8 +4,7 @@ class Exam < ActiveRecord::Base
   belongs_to :examiner
   has_many :questions
 
-  after_initialize :defaults
-  def defaults
+  after_create do
     self.total_score = 0
     self.problem_number = 0
   end

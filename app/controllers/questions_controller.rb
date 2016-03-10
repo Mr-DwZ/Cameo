@@ -8,7 +8,7 @@ class QuestionsController < ApplicationController
     puts params[:name]
     @question = Question.new name: params[:question][:name],
                              description: params[:description],
-                             score: params[:score],
+                             score: params[:question][:score],
                              input: params[:input],
                              output: params[:output],
                              sample_input: params[:sample_input],
