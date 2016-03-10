@@ -14,6 +14,8 @@
       <%= label_tag "Problem number :" %>
       <%= @exam[:problem_number]%>
       <br>
+      <%= link_to "Back", examiner_path(params[:examiner_username]) %>
+      <%= link_to "Edit" %> <br>
       <h2>
         Questions
         <small><%= link_to 'add',
