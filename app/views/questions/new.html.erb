@@ -1,3 +1,59 @@
-<h1>
-  At here you can create a new question
-</h1>
+<html>
+<head>
+  <style class="text/css">
+    textarea {
+      resize: none;
+    }
+  </style>
+</head>
+
+<body>
+<div class="container">
+  <div class="col-md-6">
+    <h1>Add question</h1>
+    <%= form_for :question, url: examiner_exam_questions_path do |f| %>
+        <%= f.label :name, "Question Name", class: 'control-label' %>
+        <%= f.text_field :name, class: 'form-control' %>
+        <br>
+
+        <%= f.label :score, "Score", class: 'control-label' %>
+        <%= f.number_field :score, class: 'form-control' %>
+        <br>
+
+        <%= f.label :description, "Description", class: 'control-label' %> <br>
+        <textarea name="description" class="form-control" cols="30" rows="10"></textarea>
+        <br>
+
+        <%= f.label :input, "Input", class: 'control-label' %> <br>
+        <textarea name="input" class="form-control" cols="30" rows="10"></textarea>
+        <br>
+
+        <%= f.label :output, "Output", class: 'control-label' %> <br>
+        <textarea name="output" class="form-control" cols="30" rows="10"></textarea>
+        <br>
+
+        <%= f.label :sample_input, "Sample Input", class: 'control-label' %> <br>
+        <textarea name="sample_input" class="form-control" cols="30" rows="10"></textarea>
+        <br>
+
+        <%= f.label :sample_output, "Sample Output", class: 'control-label' %> <br>
+        <textarea name="sample_output" class="form-control" cols="30" rows="10"></textarea>
+        <br>
+
+        <%= f.label :hint, "Hint", class: 'control-label' %> <br>
+        <textarea name="hint" class="form-control" cols="30" rows="10"></textarea>
+        <br>
+
+        <%= f.label :test_input, "Test Input", class: 'control-label' %> <br>
+        <textarea name="test_input" class="form-control" cols="50" rows="10"></textarea>
+        <br>
+        <%= f.label :test_output, "Test Output", class: 'control-label' %> <br>
+        <textarea name="test_output" class="form-control" cols="50" rows="10"></textarea>
+        <br>
+        <%= f.submit "Submit", class: "btn btn-primary" %>
+    <%end%>
+    <br>
+  </div>
+</div>
+</body>
+</html>

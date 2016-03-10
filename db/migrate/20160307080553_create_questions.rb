@@ -2,6 +2,7 @@ class CreateQuestions < ActiveRecord::Migration
   def change
     create_table :questions do |t|
       t.string :name
+      t.integer :score
       t.text :description
       t.text :input
       t.text :output

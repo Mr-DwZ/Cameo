@@ -24,14 +24,26 @@
       <table class="table">
         <thead>
         <tr>
-          <th>#</th>
           <th>Question Name</th>
+          <th>Score</th>
           <th>Operations</th>
         </tr>
         </thead>
 
         <tbody>
-        <!--@exam.questions iterate here-->
+        <% if @questions %>
+            <% @questions.each do |question| %>
+                <tr>
+                  <td><%= question[:name] %> </td>
+                  <td><%= question[:score] %> </td>
+                  <td>
+                    <%= link_to "Remove", examiner_exam_question_path(params[:examiner_username], @exam.id, question.id),
+                                method: :delete%>
+                    <%= link_to "View" %>
+                  </td>
+                </tr>
+            <% end %>
+        <% end%>
         </tbody>
       </table>
 
@@ -51,7 +63,7 @@
         </thead>
 
         <tbody>
-        <!--@exam.examinees iterate here-->
+
         </tbody>
       </table>
 

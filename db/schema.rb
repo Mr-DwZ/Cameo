@@ -62,6 +62,7 @@ ActiveRecord::Schema.define(version: 20160309120812) do
 
   create_table "questions", force: :cascade do |t|
     t.string   "name"
+    t.integer  "score"
     t.text     "description"
     t.text     "input"
     t.text     "output"
