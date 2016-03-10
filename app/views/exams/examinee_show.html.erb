@@ -34,7 +34,9 @@
                 <tr>
                   <td><%= question[:name] %> </td>
                   <td><%= question[:score] %> </td>
-                  <td> <%= link_to "View" %> </td>
+                  <td> <%= link_to "View",
+                  examinee_exam_question_path(params[:examinee_username],
+                                              question.exam_id, question.id) %> </td>
                 </tr>
             <% end %>
         <% end%>

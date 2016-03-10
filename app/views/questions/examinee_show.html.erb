@@ -1,0 +1,46 @@
+<div class="container">
+  <div class="col-md-6">
+    <h1>
+      <%= @question[:name] %>
+      <br>
+      <small>
+        <em><%= @question.exam.examiner.name %></em>
+      </small>
+    </h1>
+    <%= link_to "Back", examinee_exam_path(
+        params[:examinee_username],
+        id: @question.exam.id) %>
+
+    <h2>Description</h2>
+    <p><%= @question[:description] %></p>
+
+    <h2>Input</h2>
+    <p><%= @question[:input] %></p>
+
+    <h2>Output</h2>
+    <p><%= @question[:output] %></p>
+
+    <h2>Sample Input</h2>
+    <pre><%= @question[:sample_input] %></pre>
+
+    <h2>Sample Output</h2>
+    <pre><%= @question[:sample_output] %></pre>
+
+    <h2>Hint</h2>
+    <p>
+      <%= @question[:hint] %>
+    </p>
+
+    <h2>Your Code</h2>
+    <select class="form-control">
+      <option>C</option>
+      <option>C++</option>
+      <option>Java</option>
+    </select>
+
+    <textarea class="form-control" rows="10"></textarea>
+    <br>
+    <button class="btn btn-primary">submit</button>
+
+  </div>
+</div>

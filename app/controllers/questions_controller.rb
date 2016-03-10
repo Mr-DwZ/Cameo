@@ -25,6 +25,8 @@ class QuestionsController < ApplicationController
 
     if session[:status] == "Examiner"
       render "show.html.erb"
+    else
+      render "examinee_show.html.erb"
     end
   end
 
