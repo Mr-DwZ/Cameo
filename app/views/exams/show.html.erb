@@ -39,9 +39,12 @@
                   <td><%= question[:name] %> </td>
                   <td><%= question[:score] %> </td>
                   <td>
-                    <%= link_to "Remove", examiner_exam_question_path(params[:examiner_username], @exam.id, question.id),
+                    <%= link_to "Remove",
+                                examiner_exam_question_path(params[:examiner_username], @exam.id, question.id),
                                 method: :delete%>
-                    <%= link_to "View" %>
+                    <%= link_to "View",
+                                examiner_exam_question_path(params[:examiner_username], @exam.id, question.id)
+                                %>
                   </td>
                 </tr>
             <% end %>

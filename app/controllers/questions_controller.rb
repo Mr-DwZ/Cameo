@@ -20,6 +20,14 @@ class QuestionsController < ApplicationController
     redirect_to examiner_exam_path(params[:examiner_username], params[:exam_id])
   end
 
+  def show
+    @question = Question.find_by_id params[:id]
+
+    if session[:status] == "Examiner"
+      render "show.html.erb"
+    end
+  end
+
   def destroy
     @question = Question.find_by_id params[:id]
     @question.destroy
