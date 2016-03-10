@@ -1,0 +1,13 @@
+<div class="container">
+  <div class="col-md-6">
+    <h1>At here, you can add a examinee to exam. </h1>
+
+    <%= form_for :result, url: examiner_exam_results_path do |f| %>
+        <%= f.label :examinee_id, "Examinee ID", class: 'control-label' %>
+        <%= f.text_field :examinee_id, class: 'form-control' %>
+        <br>
+        <%= f.submit "Submit", class: "btn btn-primary" %>
+    <% end %>
+
+  </div>
+</div>

@@ -51,13 +51,13 @@
 
       <h2>
         Examinees
-        <small><%= link_to 'add' %></small>
+        <small><%= link_to 'add',
+                           new_examiner_exam_result_url(params[:examiner_username],params[:id])%></small>
       </h2>
 
       <table class="table">
         <thead>
         <tr>
-          <th>#</th>
           <th>Name</th>
           <th>Score</th>
           <th>Operations</th>
@@ -65,7 +65,18 @@
         </thead>
 
         <tbody>
-
+        <% if @examinees %>
+            <% @examinees.each do |examinee| %>
+                <tr>
+                  <td><%= examinee[:name] %> </td>
+                  <td><%= examinee[:score] %> </td>
+                  <td>
+                    <%= link_to "Remove"%>
+                    <%= link_to "View" %>
+                  </td>
+                </tr>
+            <% end %>
+        <% end%>
         </tbody>
       </table>
 

@@ -25,6 +25,7 @@ class ExamsController < ApplicationController
   def show
     @exam = Exam.find_by_id params[:id]
     @questions = @exam.questions.all
+    @examinees = @exam.examinees.all
   end
 
   def destroy
