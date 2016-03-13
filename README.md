@@ -1,2 +1,2 @@
 # Cameo
-A simple Oline Judge System
+A simple Online Judge System based on Rails.
